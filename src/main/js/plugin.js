@@ -2,19 +2,19 @@
 // This file exports a DMX plugin configuration object or a function which returns such an object.
 // The function receives a "dependencies" object with 4 properties: 'store', 'dm5', 'axios', and 'Vue'.
 // 'store' is the DMX webclient's Vuex store object.
-export default ({store, dm5, axios, Vue}) => ({
+export default ({ store, dm5, axios, Vue }) => ({
 
   // A DMX plugin can provide its own Vuex store module.
-  // This plugin's state is accessible as 'store.state.greeting' (according to the 'name' property).
+  // This plugin's state is accessible as 'store.state.zettel' (according to the 'name' property).
   storeModule: {
-    name: 'greeting',
-    module: require('./greeting').default
+    name: 'zettel',
+    module: require('./zettel').default
   },
 
   // A DMX plugin can statically add Vue components to the DMX webclient.
   // 3 mount points are supported: 'webclient', 'toolbar-left', and 'toolbar-right'
   components: [{
-    comp: require('./components/Greeting').default,
+    comp: require('./components/Zettel').default,
     mount: 'toolbar-left'
   }]
 
