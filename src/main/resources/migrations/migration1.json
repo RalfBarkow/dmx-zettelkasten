@@ -1,0 +1,92 @@
+{
+    "topic_types": [
+        {
+            "value":       "title",
+            "uri":         "zettelkasten.zettel.title",
+            "dataTypeUri": "dmx.core.text"
+        },
+        {
+            "value":       "content",
+            "uri":         "zettelkasten.zettel.content",
+            "dataTypeUri": "dmx.core.html"
+        },
+        {
+            "value":       "author",
+            "uri":         "zettelkasten.zettel.author",
+            "dataTypeUri": "dmx.core.text"
+        },
+        {
+            "value":       "keywords",
+            "uri":         "zettelkasten.zettel.keywords",
+            "dataTypeUri": "dmx.core.text"
+        },
+        {
+            "value":       "manlinks",
+            "uri":         "zettelkasten.zettel.manlinks",
+            "dataTypeUri": "dmx.core.text"
+        },
+        {
+            "value":       "links",
+            "uri":         "zettelkasten.zettel.links",
+            "dataTypeUri": "dmx.core.text"
+        },
+        {
+            "value":       "misc",
+            "uri":         "zettelkasten.zettel.misc",
+            "dataTypeUri": "dmx.core.text"
+        },
+        {
+            "value":       "luhmann",
+            "uri":         "zettelkasten.zettel.luhmann",
+            "dataTypeUri": "dmx.core.text"
+        },
+        {
+            "value":       "Zettel",
+            "uri":         "zettelkasten.zettel",
+            "dataTypeUri": "dmx.core.identity",
+            "compDefs": [
+                {
+                    "childTypeUri":        "zettelkasten.zettel.title",
+                    "childCardinalityUri": "dmx.core.one"
+                },
+                {
+                    "childTypeUri":        "zettelkasten.zettel.content",
+                    "childCardinalityUri": "dmx.core.one"
+                },
+                {
+                    "childTypeUri":        "zettelkasten.zettel.author",
+                    "childCardinalityUri": "dmx.core.one"
+                },
+                {
+                    "childTypeUri":        "zettelkasten.zettel.keywords",
+                    "childCardinalityUri": "dmx.core.one"
+                },
+                {
+                    "childTypeUri":        "zettelkasten.zettel.manlinks",
+                    "childCardinalityUri": "dmx.core.one"
+                },
+                {
+                    "childTypeUri":        "zettelkasten.zettel.links",
+                    "childCardinalityUri": "dmx.core.one"
+                },
+                {
+                    "childTypeUri":        "zettelkasten.zettel.misc",
+                    "childCardinalityUri": "dmx.core.one"
+                },
+                {
+                    "childTypeUri":        "zettelkasten.zettel.luhmann",
+                    "childCardinalityUri": "dmx.core.one"
+                }
+            ],
+            "viewConfigTopics": [
+                {
+                    "typeUri": "dmx.webclient.view_config",
+                    "children": {
+                        "dmx.webclient.icon": "\uf24a",
+                        "dmx.webclient.add_to_create_menu": true
+                    }
+                }
+            ]
+        }
+    ]
+}

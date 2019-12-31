@@ -7,7 +7,7 @@
      https://github.com/jri/dm5-object-renderer/tree/master/src/components
 -->
 <template>
-  <el-button class="greeting" @click="click">{{buttonLabel}}</el-button>
+  <el-button class="zettel" @click="click">{{buttonLabel}}</el-button>
 </template>
 
 <script>
@@ -18,9 +18,9 @@ export default {
   // (instead of being injected at runtime). Disadvantages: 1) The plugin build size would increase, and 2) at runtime
   // the libraries would be instantiated more than once, possibly causing problems.
   inject: {
-    dm5:  'dm5',
+    dm5: 'dm5',
     http: 'axios',
-    Vue:  'Vue'
+    Vue: 'Vue'
   },
 
   created () {
@@ -34,20 +34,20 @@ export default {
 
   computed: {
     buttonLabel () {
-      return this.$store.state.greeting.buttonLabel
+      return this.$store.state.zettel.buttonLabel
     }
   },
 
   methods: {
     click () {
-      this.$store.dispatch('greet')
+      this.$store.dispatch('createZettel')
     }
   }
 }
 </script>
 
 <style>
-.greeting {
+.zettel {
   margin-left: 2em;
 }
 </style>
