@@ -6,3 +6,8 @@ stats.json
 .DS_Store
 *~
 commit-message.txt
+elm-stuff
+.settings
+.classpath
+.project
+.vscode/settings.json
