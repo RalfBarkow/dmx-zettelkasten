@@ -11,5 +11,11 @@
   "scripts": {
     "build": "../../node_modules/.bin/webpack -p --hide-modules",
     "stats": "../../node_modules/.bin/webpack -p --json > stats.json && ../../node_modules/.bin/webpack-bundle-analyzer stats.json src/main/resources/web"
+  },
+  "devDependencies": {
+    "elm-hot-webpack-loader": "^1.1.6"
+  },
+  "dependencies": {
+    "elm-webpack-loader": "^6.0.1"
   }
 }
