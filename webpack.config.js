@@ -8,6 +8,8 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const CleanWebpackPlugin   = require('clean-webpack-plugin')
 const { VueLoaderPlugin }  = require('vue-loader')
 
+var elmSource = __dirname + 'src/main/elm'
+
 module.exports = {
   entry: './src/main/js/plugin.js',
   output: {
@@ -28,7 +30,11 @@ module.exports = {
         exclude: [/elm-stuff/, /node_modules/],
         use: [
           { loader: 'elm-hot-webpack-loader' },
-          { loader: 'elm-webpack-loader' }
+          { loader: 'elm-webpack-loader',
+            options: {
+              cwd: elmSource 
+            }
+          }
         ]
       },
       {
