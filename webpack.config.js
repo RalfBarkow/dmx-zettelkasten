@@ -4,11 +4,9 @@
 // Artifact ID (see this plugin's pom.xml), and has basically the form "<groupId>.<artifactId>".
 const pluginUri = 'ch.dreyeck.dmx-zettelkasten'
 
-const MiniCssExtractPlugin   = require('mini-css-extract-plugin')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
-const { VueLoaderPlugin }    = require('vue-loader')
-
-var elmSource = __dirname + 'src/main/elm'
+const { VueLoaderPlugin } = require('vue-loader')
 
 module.exports = {
   entry: './src/main/js/plugin.js',
@@ -28,14 +26,10 @@ module.exports = {
       {
         test: /\.elm$/,
         exclude: [/elm-stuff/, /node_modules/],
-        use: [
-          { loader: 'elm-hot-webpack-loader' },
-          { loader: 'elm-webpack-loader',
-            options: {
-              cwd: elmSource 
-            }
-          }
-        ]
+        use: {
+          loader: 'elm-webpack-loader',
+          options: {}
+        }
       },
       {
         test: /\.vue$/,
