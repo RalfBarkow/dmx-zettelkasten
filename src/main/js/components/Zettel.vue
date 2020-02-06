@@ -7,43 +7,64 @@
      https://github.com/jri/dm5-object-renderer/tree/master/src/components
 -->
 <template>
-  <el-button class="zettel" @click="click">{{buttonLabel}}</el-button>
+  <!--
+  <el-button class="zettel" @click="click">{{ buttonLabel }}</el-button>
+  -->
+  <div id="app">
+    <Counter :flags="flags" :ports="setupPorts" />
+  </div>
 </template>
 
 <script>
-export default {
+import elmBridge from "elm-vue-bridge";
 
+var myObj = new Object();
+myObj.value = 1; // Expecting an OBJECT with a field named `value`
+
+export default {
   // In a DMX webclient component you can inject 3 dependencies: 'dm5', 'axios', 'Vue'.
   // Important: do *not* import/require these libraries yourself. They would be statically bundled with your plugin then
   // (instead of being injected at runtime). Disadvantages: 1) The plugin build size would increase, and 2) at runtime
   // the libraries would be instantiated more than once, possibly causing problems.
   inject: {
-    dm5: 'dm5',
-    http: 'axios',
-    Vue: 'Vue'
+    dm5: "dm5",
+    http: "axios",
+    Vue: "Vue"
   },
 
-  created () {
-    this.http.get('/core/topic/0').then(response => {
-      console.log(new this.dm5.Topic(response.data))
-    })
+  created() {
+    this.http.get("/core/topic/0").then(response => {
+      console.log(new this.dm5.Topic(response.data));
+    });
     this.Vue.nextTick(() => {
-      console.log('Hello Vue!')
-    })
+      console.log("Hello Vue!");
+    });
   },
 
   computed: {
-    buttonLabel () {
-      return this.$store.state.zettel.buttonLabel
+    buttonLabel() {
+      return this.$store.state.zettel.buttonLabel;
     }
   },
 
+  components: {
+    Counter: elmBridge(require("../../elm/Counter.elm").Elm.Counter)
+  },
+  props: {
+    flags: {
+      type: Object,
+      default() {
+        return myObj;
+      }
+    } // Expecting an OBJECT with a field named `value`
+  },
+
   methods: {
-    click () {
-      this.$store.dispatch('createZettel')
+    click() {
+      this.$store.dispatch("createZettel");
     }
   }
-}
+};
 </script>
 
 <style>
