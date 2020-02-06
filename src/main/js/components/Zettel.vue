@@ -11,7 +11,7 @@
   <el-button class="zettel" @click="click">{{ buttonLabel }}</el-button>
   -->
   <div id="app">
-    <Counter :flags="flags" :ports="setupPorts" />
+    <Main :flags="flags" :ports="setupPorts" />
   </div>
 </template>
 
@@ -48,7 +48,7 @@ export default {
   },
 
   components: {
-    Counter: elmBridge(require("../../elm/Counter.elm").Elm.Counter)
+    Main: elmBridge(require("../../elm/Main.elm").Elm.Main)
   },
   props: {
     flags: {

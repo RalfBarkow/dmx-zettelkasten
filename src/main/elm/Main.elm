@@ -1,4 +1,4 @@
-port module Counter exposing (Model, Msg(..), init, main, update, view)
+port module Main exposing (Model, Msg(..), init, main, update, view)
 
 import Browser
 import Html exposing (Html, button, div, h1, h2, img, text)
@@ -68,7 +68,8 @@ valueDecoder =
 view : Model -> Html Msg
 view model =
     div []
-        [ h1 [] [ text "Your Elm App is working!" ]
+        [ img [ src "./assets/images/logo.svg" ] []
+        , h1 [] [ text "Zettelkasten" ]
         , button [ onClick SendData ] [ text "Send some data" ]
         , h2 [] [ text <| String.fromInt model.counter ]
         , h2 [] [ text model.error ]
