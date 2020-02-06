@@ -7,9 +7,6 @@
      https://github.com/jri/dm5-object-renderer/tree/master/src/components
 -->
 <template>
-  <!--
-  <el-button class="zettel" @click="click">{{ buttonLabel }}</el-button>
-  -->
   <div id="app">
     <Main :flags="flags" :ports="setupPorts" />
   </div>
