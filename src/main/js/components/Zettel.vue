@@ -60,8 +60,12 @@ export default {
   },
 
   methods: {
-    click() {
-      this.$store.dispatch("createZettel");
+    setupPorts: function(ports) {
+      ports.sendStuff.subscribe(function(message) {
+        // eslint-disable-next-line no-console
+        console.log(message);
+      });
+      this.ports = ports;
     }
   }
 };
