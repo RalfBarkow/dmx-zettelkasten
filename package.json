@@ -13,6 +13,7 @@
     "stats": "../../node_modules/.bin/webpack -p --json > stats.json && ../../node_modules/.bin/webpack-bundle-analyzer stats.json src/main/resources/web"
   },
   "devDependencies": {
+    "babel-core": "^6.26.3",
     "elm-hot-webpack-loader": "^1.1.6"
   },
   "dependencies": {
