@@ -69,7 +69,7 @@ view : Model -> Html Msg
 view model =
     div []
         [ img [ src "./assets/images/logo.svg" ] []
-        , h1 [] [ text "Zettelkasten" ]
+        , h1 [] [ text "Zettel" ]
         , button [ onClick SendData ] [ text "Send some data" ]
         , h2 [] [ text <| String.fromInt model.counter ]
         , h2 [] [ text model.error ]
