@@ -57,6 +57,7 @@ export default {
   },
 
   methods: {
+    // https://guide.elm-lang.org/interop/ports.html
     setupPorts: function(ports) {
       ports.sendStuff.subscribe(function(message) {
         // eslint-disable-next-line no-console

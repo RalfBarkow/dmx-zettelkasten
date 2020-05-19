@@ -11,6 +11,14 @@ import Json.Encode
 port sendStuff : Json.Encode.Value -> Cmd msg
 
 
+
+{- The following port declaration
+   creates a receiveStuff function, and
+      if we subscribe to receiveStuff Changed,
+      we will get a Msg whenever folks send values in from JavaScript.
+-}
+
+
 port receiveStuff : (Json.Encode.Value -> msg) -> Sub msg
 
 
