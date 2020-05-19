@@ -54,5 +54,12 @@ module.exports = {
     }),
     new CleanWebpackPlugin(),
     new VueLoaderPlugin()
-  ]
+  ],
+  stats: {
+    entrypoints: false,
+    assetsSort: 'chunks'
+  },
+  performance: {
+    hints: false
+  }
 }

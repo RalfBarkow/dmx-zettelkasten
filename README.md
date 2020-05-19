@@ -29,14 +29,14 @@ Only when you build DeepaMehta 5 from source you will get Hot Module Replacement
 
 ### Clone the template project
 
-The template project assumes being cloned inside DeepaMehta's `modules-external` directory.
+Clone the template project inside DeepaMehta's `modules-external` directory:
 
 ```sh
 cd modules-external
 git clone https://github.com/jri/dm5-plugin-template.git
 ```
 
-Cloning inside `modules-external` has 2 advantages:
+Cloning inside `modules-external` gives you 2 features without requiring manual configuration:
 
 - For building the production version of the plugin the existing Webpack installation of the DeepaMehta installation will be reused (you don't need install Webpack for every plugin project again and again).
 - The production build of your plugin is automatically copied to DeepaMehta's `bundle-deploy` directory in order to get hot deployed.
@@ -105,6 +105,14 @@ Test the production build of your plugin by opening the webclient, but this time
 
 ## Version History
 
+**0.6** -- Mar 30, 2020
+
+* Improvement:
+    * Support code splitting also for CSS
+* Chore:
+    * Adapt to `clean-webpack-plugin` 3.0
+* Requires DMX 5.0-beta-7
+
 **0.5** -- Nov 25, 2019
 
 * Improvement:
@@ -142,7 +150,3 @@ Test the production build of your plugin by opening the webclient, but this time
 **0.2** -- Mar 26, 2018
 
 **0.1** -- May 1, 2017
-
-------------
-Jörg Richter  
-Nov 25, 2019
