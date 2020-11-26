@@ -43,7 +43,7 @@
         {
             "value":       "Zettel",
             "uri":         "zettelkasten.zettel",
-            "dataTypeUri": "dmx.core.identity",
+            "dataTypeUri": "dmx.core.entity",
             "compDefs": [
                 {
                     "childTypeUri":        "zettelkasten.zettel.title",
