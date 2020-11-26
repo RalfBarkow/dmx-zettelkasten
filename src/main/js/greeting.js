@@ -4,16 +4,16 @@
 export default ({dm5, axios, Vue}) => ({
 
   state: {
-    buttonLabel: "Greetings!"
+    buttonLabel: "Zettel"
   },
 
   actions: {
     greet () {
       dm5.restClient.createTopic({
-        typeUri: 'dmx.notes.note',
+        typeUri: 'zettelkasten.zettel',
         children: {
-          'dmx.notes.title': {value: 'Greetings'},
-          'dmx.notes.text':  {value: '<p>from <b>DMX</b>!<p>'}
+          'zettelkasten.zettel.title': {value: 'Greetings'},
+          'zettelkasten.zettel.content':  {value: '<p>from <b>DMX</b>!<p>'}
         }
       })
     }
