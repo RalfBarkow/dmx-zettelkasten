@@ -1,4 +1,5 @@
-# DeepaMehta 5 Plugin Template
+# DMX 5 Plugin Template --> dmx-zettelkasten / tcm-zettelkasten
+(tcm = The Context Machine)
 
 This project is aimed at [DeepaMehta 5](https://github.com/jri/deepamehta) plugin developers.
 
@@ -25,7 +26,8 @@ cd deepamehta
 mvn clean install -P all -DskipTests
 ```
 
-Only when you build DeepaMehta 5 from source you will get Hot Module Replacement. Hot Module Replacement provides you a comfortable development experience.
+Only when you build DeepaMehta 5 from source you will get Hot Module Replacement. 
+Hot Module Replacement provides you a comfortable development experience.
 
 ### Clone the template project
 
