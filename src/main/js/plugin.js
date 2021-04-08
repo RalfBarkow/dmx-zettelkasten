@@ -2,7 +2,7 @@
 // This file exports a DMX plugin configuration object or a function which returns such an object.
 // The function receives a "dependencies" object with 4 properties: 'store', 'dm5', 'axios', and 'Vue'.
 // 'store' is the DMX Webclient's Vuex store object.
-export default ({store, dm5, axios, Vue}) => ({
+export default ({store, dmx, axios, Vue}) => ({
 
   // A DMX plugin can provide its own Vuex store module.
   // This plugin's state is accessible as 'store.state.greeting' (according to the 'name' property).

@@ -1,7 +1,7 @@
 {
   "name": "dmx-zettelkasten",
-  "version": "0.1.0",
-  "description": "A starter project for DeepaMehta 5 plugin developers",
+  "version": "0.1.1",
+  "description": "Based on the starter project for DMX 5 plugin developers",
   "author": "Ralf Barkow <ralf.barkow@me.com>",
   "license": "GPL-3.0-or-later",
   "repository": {
