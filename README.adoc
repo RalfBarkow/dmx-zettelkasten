@@ -75,7 +75,7 @@ npm run dev
 
 === What the example plugin does
 
-The plugin mounts a "Greetings!" button into the Webclient's toolbar. When you click it, another "Greetings" Note topic is created in the database and revealed on the topicmap.
+The plugin mounts a "Zettel" button instead of the "Greetings!" button into the Webclient's toolbar. When you click it, another Zettel topic is created in the database and revealed on the topicmap.
 
 image:img/greetings-button.png[greetings-button]
 
@@ -102,7 +102,7 @@ mvn clean package
 
 This will build a `.jar` file for production and copy it to DMX's `bundle-deploy` directory. The `.jar` file contains your plugin (minified Javascript, extracted CSS, both hashed for longterm caching) and is deployable in every DMX 5 installation. The production build is handled by Webpack. The DMX server serves the plugin front-end assets via http(s).
 
-Test the production build of your plugin by opening the Webclient, but this time as served from the DMX server `http://localhost:8080/systems.dmx.webclient/` (note that the trailing slash is needed). The "Greetings!" button is supposed to appear and function like before. But note that this time the DMX webclient fetches the plugin's front-end assets (Javascript, CSS) from the DMX server (no Webpack Dev Server involved). You can see this in the browser console:
+Test the production build of your plugin by opening the Webclient, but this time as served from the DMX server `http://localhost:8080/systems.dmx.webclient/` (note that the trailing slash is needed). The "Zettel" button is supposed to appear and function like before. But note that this time the DMX webclient fetches the plugin's front-end assets (Javascript, CSS) from the DMX server (no Webpack Dev Server involved). You can see this in the browser console:
 
 image:img/fetch-plugin.png[fetch-plugin]
 
