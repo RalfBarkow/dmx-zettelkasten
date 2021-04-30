@@ -11,6 +11,7 @@
 </template>
 
 <script>
+import * as Croquet from "@croquet/croquet";
 export default {
 
   // In a DMX Webclient component you can inject 3 dependencies: 'dmx', 'axios', 'Vue'.
