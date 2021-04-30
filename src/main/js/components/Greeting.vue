@@ -7,44 +7,93 @@
      https://git.dmx.systems/nodejs-modules/dmx-object-renderer/-/tree/master/src/components
 -->
 <template>
-  <el-button class="greeting" @click="click">{{buttonLabel}}</el-button>
+  <el-button class="greeting" @click="click">{{ buttonLabel }}</el-button>
 </template>
 
 <script>
 import * as Croquet from "@croquet/croquet";
-export default {
 
+export default {
   // In a DMX Webclient component you can inject 3 dependencies: 'dmx', 'axios', 'Vue'.
   // Important: do *not* import/require these libraries yourself. They would be statically bundled with your plugin then
   // (instead of being injected at runtime). Disadvantages: 1) The plugin build size would increase, and 2) at runtime
   // the libraries would be instantiated more than once, possibly causing problems.
   inject: {
-    dmx:  'dmx',
-    http: 'axios',
-    Vue:  'Vue'
+    dmx: "dmx",
+    http: "axios",
+    Vue: "Vue",
   },
 
-  created () {
-    this.http.get('/core/topic/0').then(response => {
-      console.log(new this.dmx.Topic(response.data))
-    })
+  created() {
+    this.http.get("/core/topic/0").then((response) => {
+      console.log(new this.dmx.Topic(response.data));
+    });
     this.Vue.nextTick(() => {
-      console.log('Hello Vue!')
-    })
+      console.log("Hello Vue!");
+
+      // Croquet Tutorial 1
+      // Hello World
+      // Croquet Studios, 2019
+
+      class MyModel extends Croquet.Model {
+        init() {
+          this.count = 0;
+          this.subscribe("counter", "reset", this.resetCounter);
+          this.future(1000).tick();
+        }
+
+        resetCounter() {
+          this.count = 0;
+          this.publish("counter", "update", this.count);
+        }
+
+        tick() {
+          this.count++;
+          this.publish("counter", "update", this.count);
+          this.future(1000).tick();
+        }
+      }
+
+      MyModel.register("MyModel");
+
+      class MyView extends Croquet.View {
+        constructor(model) {
+          super(model);
+          countDisplay.onclick = (event) => this.onclick(event);
+          this.subscribe("counter", "update", this.handleUpdate);
+        }
+
+        onclick() {
+          this.publish("counter", "reset");
+        }
+
+        handleUpdate(data) {
+          countDisplay.textContent = data;
+        }
+      }
+
+      Croquet.Session.join({
+        appId: "io.codepen.croquet.hello",
+        name: "unnamed",
+        password: "secret",
+        model: MyModel,
+        view: MyView,
+      });
+    });
   },
 
   computed: {
-    buttonLabel () {
-      return this.$store.state.greeting.buttonLabel
-    }
+    buttonLabel() {
+      return this.$store.state.greeting.buttonLabel;
+    },
   },
 
   methods: {
-    click () {
-      this.$store.dispatch('greet')
-    }
-  }
-}
+    click() {
+      this.$store.dispatch("greet");
+    },
+  },
+};
 </script>
 
 <style>
