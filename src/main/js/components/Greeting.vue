@@ -13,6 +13,47 @@
 <script>
 import * as Croquet from "@croquet/croquet";
 
+// Croquet Tutorial 1
+// Hello World
+// Croquet Studios, 2019
+
+class MyModel extends Croquet.Model {
+  init() {
+    this.count = 0;
+    this.subscribe("counter", "reset", this.resetCounter);
+    this.future(1000).tick();
+  }
+
+  resetCounter() {
+    this.count = 0;
+    this.publish("counter", "update", this.count);
+  }
+
+  tick() {
+    this.count++;
+    this.publish("counter", "update", this.count);
+    this.future(1000).tick();
+  }
+}
+
+MyModel.register("MyModel");
+
+class MyView extends Croquet.View {
+  constructor(model) {
+    super(model);
+    countDisplay.onclick = (event) => this.onclick(event);
+    this.subscribe("counter", "update", this.handleUpdate);
+  }
+
+  onclick() {
+    this.publish("counter", "reset");
+  }
+
+  handleUpdate(data) {
+    countDisplay.textContent = data;
+  }
+}
+
 export default {
   // In a DMX Webclient component you can inject 3 dependencies: 'dmx', 'axios', 'Vue'.
   // Important: do *not* import/require these libraries yourself. They would be statically bundled with your plugin then
@@ -30,55 +71,6 @@ export default {
     });
     this.Vue.nextTick(() => {
       console.log("Hello Vue!");
-
-      // Croquet Tutorial 1
-      // Hello World
-      // Croquet Studios, 2019
-
-      class MyModel extends Croquet.Model {
-        init() {
-          this.count = 0;
-          this.subscribe("counter", "reset", this.resetCounter);
-          this.future(1000).tick();
-        }
-
-        resetCounter() {
-          this.count = 0;
-          this.publish("counter", "update", this.count);
-        }
-
-        tick() {
-          this.count++;
-          this.publish("counter", "update", this.count);
-          this.future(1000).tick();
-        }
-      }
-
-      MyModel.register("MyModel");
-
-      class MyView extends Croquet.View {
-        constructor(model) {
-          super(model);
-          countDisplay.onclick = (event) => this.onclick(event);
-          this.subscribe("counter", "update", this.handleUpdate);
-        }
-
-        onclick() {
-          this.publish("counter", "reset");
-        }
-
-        handleUpdate(data) {
-          countDisplay.textContent = data;
-        }
-      }
-
-      Croquet.Session.join({
-        appId: "io.codepen.croquet.hello",
-        name: "unnamed",
-        password: "secret",
-        model: MyModel,
-        view: MyView,
-      });
     });
   },
 
@@ -91,6 +83,17 @@ export default {
   methods: {
     click() {
       this.$store.dispatch("greet");
+
+      // Croquet Tutorial 1
+      // Hello World
+      // Croquet Studios, 2019
+      Croquet.Session.join({
+        appId: "io.codepen.croquet.hello",
+        name: "unnamed",
+        password: "secret",
+        model: MyModel,
+        view: MyView,
+      });
     },
   },
 };
