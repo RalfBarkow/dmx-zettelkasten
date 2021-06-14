@@ -1,6 +1,6 @@
 = dmx-zettelkasten
 
-Developers who want to develop a plugin for the https://github.com/dmx-systems/dmx-platform[DMX Knowledge Building Platform] are referred to  https://github.com/dmx-systems/dmx-plugin-template[this Template]. The dmx-zettelkasten is a plugin based on that template.
+This a plugin for the https://github.com/dmx-systems/dmx-platform[DMX Knowledge Building Platform] based on https://github.com/dmx-systems/dmx-plugin-template[this Template].
 
 A plugin for the DMX platform can contain both, a server-side part, and/or a client-side part. At client-side a plugin either _extends_ the DMX Webclient, or _creates_ a complete custom web front-end (which possibly provides its own extension mechanism).
 
