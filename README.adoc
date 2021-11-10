@@ -73,7 +73,7 @@ cd dmx-platform
 npm run dev
 ----
 
-=== What the example plugin does
+=== What the Zettelkasten plugin does
 
 The plugin mounts a "Zettel" button instead of the "Greetings!" button into the Webclient's toolbar. When you click it, another Zettel topic is created in the database and revealed on the topicmap.
 
@@ -96,7 +96,7 @@ During development, the result of any change you make is immediately visible in 
 
 [source,sh]
 ----
-cd dmx-plugin-template
+cd dmx-zettelkasten
 mvn clean package
 ----
 
