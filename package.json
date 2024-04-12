@@ -1,6 +1,6 @@
 {
   "name": "dmx-zettelkasten",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Based on the starter project for DMX 5 plugin developers",
   "author": "Ralf Barkow <ralf.barkow@me.com>",
   "license": "GPL-3.0-or-later",
@@ -14,7 +14,7 @@
   },
   "devDependencies": {
     "babel-core": "^6.26.3",
-    "elm-hot-webpack-loader": "^1.1.6"
+    "clean-webpack-plugin": "^4.0.0"
   },
   "dependencies": {
     "elm": "^0.19.1-3",
